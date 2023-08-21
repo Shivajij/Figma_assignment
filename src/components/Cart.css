@@ -1,13 +1,12 @@
 
-
 .cart-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    overflow-x: auto; 
+    white-space: nowrap; 
   }
   
   .card {
@@ -18,9 +17,9 @@
   }
   
   .card img {
-    width: 100%; /* Maintain consistent image width */
+    width: 100%; 
     height: auto;
-    object-fit: cover; /* Keep aspect ratio and fill the container */
+    object-fit: cover; 
   }
   
   .card-title {

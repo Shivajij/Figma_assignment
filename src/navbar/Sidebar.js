@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { BsLayoutTextSidebarReverse } from "react-icons/bs";
 import "./Sidebar.css";
 
-function Sidebar({ setSortByPrice, sortByPrice }) {
+function Sidebar({ setSortByPrice }) {
   const [showOptions, setShowOptions] = useState(false);
   const [showIcon, setShowIcon] = useState(false);
 
   const toggleOptions = () => {
     setShowOptions(!showOptions);
+  };
+
+  const handleSortByPriceChange = () => {
+    setSortByPrice((prevSortByPrice) => !prevSortByPrice);
   };
 
   useEffect(() => {
@@ -44,10 +48,11 @@ function Sidebar({ setSortByPrice, sortByPrice }) {
             <input
               type="checkbox"
               className="option-checkbox"
+              onChange={handleSortByPriceChange}
             />
 
             <span className="option-text" style={{ cursor: "pointer" }}>
-              Sort By Price
+              filter
             </span>
           </label>
         </div>

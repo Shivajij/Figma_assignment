@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import CustomPagination from "./Pagination";
-import Sidebar from "../navbar/Sidebar";
+import "./Home.css"; // Import the CSS file for styling
 
-function Home() {
+function Home({ sortByPrice }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortByPrice, setSortByPrice] = useState(false); // Add sorting state
   const productsPerPage = window.innerWidth <= 768 ? 4 : 8;
 
   useEffect(() => {
@@ -18,7 +17,9 @@ function Home() {
         let sortedProducts = response.data;
 
         if (sortByPrice) {
-          sortedProducts = sortedProducts.slice().sort((a, b) => a.price - b.price);
+          sortedProducts = sortedProducts
+            .slice()
+            .sort((a, b) => b.price - a.price);
         }
 
         setProducts(sortedProducts);
@@ -31,7 +32,8 @@ function Home() {
   }, [sortByPrice]);
 
   const handleAddToCart = (product) => {
-    const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existingCartItems =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
 
     const updatedCartItems = [...existingCartItems, product];
 
@@ -51,11 +53,11 @@ function Home() {
   );
 
   return (
-    <div className="container">
+    <div className="home-container">
       <h3 className="text-center mt-3">Product Listing</h3>
       <div className="row">
         {loading ? (
-          <div>Loading...</div>
+          <div className="loading-message">Loading...</div>
         ) : (
           currentProducts.map((product) => (
             <ProductCard
@@ -74,8 +76,6 @@ function Home() {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-     <Sidebar setSortByPrice={setSortByPrice} sortByPrice={sortByPrice} />
-
     </div>
   );
 }

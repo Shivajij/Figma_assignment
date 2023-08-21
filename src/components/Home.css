@@ -44,14 +44,14 @@
   /* Responsive adjustments for tablet view */
   @media screen and (max-width: 768px) {
     .product-grid {
-      grid-template-columns: repeat(2, 1fr); /* Display 2 products in one row */
+      grid-template-columns: repeat(2, 1fr); 
     }
   }
   
   /* Responsive adjustments for mobile view */
   @media screen and (max-width: 480px) {
     .product-grid {
-      grid-template-columns: repeat(1, 1fr); /* Display 1 product in one row */
+      grid-template-columns: repeat(1, 1fr); 
       gap: 10px;
       padding: 10px;
     }
@@ -78,5 +78,11 @@
     opacity: 1;
   }
   
-  /* Rest of your existing styling... */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
   

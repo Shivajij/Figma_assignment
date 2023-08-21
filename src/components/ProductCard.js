@@ -6,7 +6,6 @@ import { FiShare2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import "./PoductCard.css";
 
-
 function ProductCard({ image, price, name, size, onAddToCart }) {
   const [hovered, setHovered] = useState(false);
 
@@ -20,10 +19,10 @@ function ProductCard({ image, price, name, size, onAddToCart }) {
 
   const handleAddToCart = () => {
     const cartItem = {
-      id: Date.now(), 
+      id: Date.now(),
       image,
       name,
-      price
+      price,
     };
     onAddToCart(cartItem);
   };
@@ -34,7 +33,10 @@ function ProductCard({ image, price, name, size, onAddToCart }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={`card ${hovered ? "hovered" : ""}`} style={{ height: "100%", position: "relative" }}>
+      <div
+        className={`card ${hovered ? "hovered" : ""}`}
+        style={{ height: "100%", position: "relative" }}
+      >
         <LazyLoad height={200} offset={100} once>
           <img
             className="card-img-top product-image"
@@ -43,24 +45,27 @@ function ProductCard({ image, price, name, size, onAddToCart }) {
           />
         </LazyLoad>
         {hovered && (
-         <div className="icon-container">
-         <Link to="/cart" className="nav-link icon-link">
-           <div className="icon-box">
-             <BsFillCartPlusFill size={20} onClick={handleAddToCart} color="black" />
-           </div>
-         </Link>
-         <Link to="/like" className="nav-link icon-link">
-           <div className="icon-box">
-             <GiSelfLove size={20} />
-           </div>
-         </Link>
-         <Link to="/share" className="nav-link icon-link">
-           <div className="icon-box">
-             <FiShare2 size={20} color="black" />
-           </div>
-         </Link>
-       </div>
-       
+          <div className="icon-container">
+            <Link to="/cart" className="nav-link icon-link">
+              <div className="icon-box">
+                <BsFillCartPlusFill
+                  size={20}
+                  onClick={handleAddToCart}
+                  color="black"
+                />
+              </div>
+            </Link>
+            <Link to="/like" className="nav-link icon-link">
+              <div className="icon-box">
+                <GiSelfLove size={20} />
+              </div>
+            </Link>
+            <Link to="/share" className="nav-link icon-link">
+              <div className="icon-box">
+                <FiShare2 size={20} color="black" />
+              </div>
+            </Link>
+          </div>
         )}
         <div className="card-body">
           <p className="card-title product-name">{name}</p>
