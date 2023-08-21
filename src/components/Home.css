@@ -1,0 +1,82 @@
+/* home.css */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 3 products in one row */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 412px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .product-details {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .product-price {
+    font-weight: bold;
+  }
+  
+  .pagination-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Responsive adjustments for tablet view */
+  @media screen and (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr); /* Display 2 products in one row */
+    }
+  }
+  
+  /* Responsive adjustments for mobile view */
+  @media screen and (max-width: 480px) {
+    .product-grid {
+      grid-template-columns: repeat(1, 1fr); /* Display 1 product in one row */
+      gap: 10px;
+      padding: 10px;
+    }
+  }
+  
+  .product-card {
+    position: relative;
+  }
+  
+  .product-image-container {
+    position: relative;
+  }
+  
+  .add-to-cart-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .product-image-container:hover .add-to-cart-btn {
+    opacity: 1;
+  }
+  
+  /* Rest of your existing styling... */
+  
